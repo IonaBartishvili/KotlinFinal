@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "935753361709",
+    "firebase_url": "https://kotlinfinal-af22f.firebaseio.com",
+    "project_id": "kotlinfinal-af22f",
+    "storage_bucket": "kotlinfinal-af22f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:935753361709:android:a6252dbbf0faa229550ba4",
+        "android_client_info": {
+          "package_name": "com.btust.tazoionaluka"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "935753361709-nghh0cm09de0c83vvpu7ffdq2mgur6p1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.btust.tazoionaluka",
+            "certificate_hash": "c68495f01fafdb5bb4b4ccb8f25eeb7d65da5018"
+          }
+        },
+        {
+          "client_id": "935753361709-pv2qp5lctf3e0t5lfpibq8uoet2ga8p1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDatvlKohrT25zKLZmL3KHejkrEs0Y4ATY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "935753361709-pv2qp5lctf3e0t5lfpibq8uoet2ga8p1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

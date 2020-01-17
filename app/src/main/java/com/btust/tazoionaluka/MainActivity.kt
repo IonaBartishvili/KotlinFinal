@@ -10,18 +10,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.IllegalArgumentException
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var database: DatabaseReference
     lateinit var auth: FirebaseAuth
 
-    private var array = arrayListOf<Any>(
-        "Melbourne",
-        "Cape Town",
-        "Barcelona",
-        "London"
-    )
+    private var array = arrayListOf<Any>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,9 +42,14 @@ class MainActivity : AppCompatActivity() {
                     showFName.text = userInfo.fname
                     showLName.text = userInfo.lname
 
-                    Picasso.get()
-                        .load(userInfo.imgURL)
-                        .into(imageView)
+                    try {
+                        Picasso.get()
+                            .load(userInfo.imgURL)
+                            .into(imageView)
+
+                    }catch (e: IllegalArgumentException){
+                        Toast.makeText(applicationContext, " ბაზაში Img URL ველი ცარიელია", Toast.LENGTH_LONG).show()
+                    }
 
                 }
 
@@ -66,6 +67,7 @@ class MainActivity : AppCompatActivity() {
 
         addTodoBtn.setOnClickListener {
             adapter.add(newTodo.text.toString())
+            newTodo.setText("")
         }
 
 

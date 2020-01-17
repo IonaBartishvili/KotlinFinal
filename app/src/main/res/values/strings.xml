@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TazoIonaLuka</string>
+    <string name="app_name">FireBase Todo</string>
     <string name="send_verif_mail">გაგზავნა</string>
     <string name="mail">მეილი</string>
     <string name="password">პაროლი</string>
@@ -13,4 +13,6 @@
     <string name="change_acc_pass">შეცვალე ანგარიშის პაროლი</string>
     <string name="newPassword">ახალი პაროლი</string>
     <string name="changePassword">პაროლის შეცვლა</string>
+    <string name="newtodo">ახალი todo</string>
+    <string name="addTodo">დამატება</string>
 </resources>

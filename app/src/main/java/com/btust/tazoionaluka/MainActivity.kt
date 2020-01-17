@@ -3,15 +3,25 @@ package com.btust.tazoionaluka
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var database: DatabaseReference
     lateinit var auth: FirebaseAuth
+
+    private var array = arrayListOf<Any>(
+        "Melbourne",
+        "Cape Town",
+        "Barcelona",
+        "London"
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,32 +41,34 @@ class MainActivity : AppCompatActivity() {
 
                 override fun onDataChange(snap: DataSnapshot) {
 
-                    val userInfo: User = snap.getValue(User::class.java) ?: return
-                    Toast.makeText(applicationContext, userInfo.email, Toast.LENGTH_LONG).show()
+                    val userInfo: GetUser = snap.getValue(GetUser::class.java) ?: return
+                    showEmail.text = userInfo.email
+                    showFName.text = userInfo.fname
+                    showLName.text = userInfo.lname
+
+                    Picasso.get()
+                        .load(userInfo.imgURL)
+                        .into(imageView)
 
                 }
 
             })
 
 
-
-        logOutBtn.setOnClickListener {
-            val gotoSignInPage = Intent(this, LoginActivity::class.java)
-            startActivity(gotoSignInPage)
-            finish()
+        profileSettings.setOnClickListener{
+            var profile_Settings = Intent(this, ProfileAcitivity::class.java)
+            startActivity(profile_Settings)
         }
 
-        changePswBtn.setOnClickListener {
-            var user = auth.currentUser
-            var newPassword = newPassword_input.text.toString()
+        val adapter = ArrayAdapter(this, R.layout.row_ui, array)
+        val listView: ListView = findViewById(R.id.listView)
+        listView.adapter = adapter
 
-            user!!.updatePassword(newPassword).addOnCompleteListener { task ->
-                if (task.isSuccessful){
-                    Toast.makeText(this, "პაროლის შეცვლა წარმატებით განხორციელდა", Toast.LENGTH_LONG).show()
-                }else{
-                    Toast.makeText(this,  "შეცდომა", Toast.LENGTH_LONG).show()
-                }
-            }
+        addTodoBtn.setOnClickListener {
+            adapter.add(newTodo.text.toString())
         }
+
+
+
     }
 }

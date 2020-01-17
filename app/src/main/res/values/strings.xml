@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">TazoIonaLuka</string>
+    <string name="send_verif_mail">გაგზავნა</string>
+    <string name="mail">მეილი</string>
+    <string name="password">პაროლი</string>
+    <string name="registration">რეგისტრაცია</string>
+    <string name="forgot_password">დამავიწყდა პაროლი</string>
+    <string name="fName">სახელი</string>
+    <string name="lName">გვარი</string>
+    <string name="change_profile_picture">შეცვალე პროფილის სურათი</string>
+    <string name="imageURL">სურის მისამართ (URL)</string>
+    <string name="uploadPhoto">ფოტოს ატვირთვა</string>
+    <string name="change_acc_pass">შეცვალე ანგარიშის პაროლი</string>
+    <string name="newPassword">ახალი პაროლი</string>
+    <string name="changePassword">პაროლის შეცვლა</string>
 </resources>

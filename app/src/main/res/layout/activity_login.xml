@@ -4,24 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF"
     tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="30dp"
         android:orientation="vertical"
+        android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toStartOf="parent">
 
         <EditText
             android:id="@+id/email_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
+            android:hint="@string/mail"
+            android:inputType="textEmailAddress"/>
 
         <EditText
             android:id="@+id/password_input"
@@ -29,27 +31,36 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword" />
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColorHighlight="#4d45ed" />
 
         <Button
             android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="შესვლა" />
+            android:background="@drawable/login_btn_design"
+            android:text="შესვლა"
+            android:textColor="#4d45ed" />
 
         <Button
             android:id="@+id/signUpBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:text="რეგისტრაცია" />
+            android:background="@drawable/signup_btn_design"
+            android:text="@string/registration"
+            android:textColor="#FFF" />
 
         <Button
+            android:layout_marginTop="20dp"
             android:id="@+id/password_ressetBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="დამავიწყდა პაროლი" />
+            android:background="@drawable/signup_btn_design"
+            android:text="@string/forgot_password"
+            android:textColor="#FFF"
+            android:layout_marginBottom="3dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

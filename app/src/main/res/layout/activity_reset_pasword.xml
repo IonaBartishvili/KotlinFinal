@@ -8,22 +8,28 @@
 
     <EditText
         android:id="@+id/sendEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:ems="10"
+        android:layout_margin="70dp"
+        android:hint="@string/mail"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:background="@drawable/signup_btn_design"
+        android:textColor="#FFF"
         android:id="@+id/resetpasswBtn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="შეცვლა"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/send_verif_mail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sendEmail" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

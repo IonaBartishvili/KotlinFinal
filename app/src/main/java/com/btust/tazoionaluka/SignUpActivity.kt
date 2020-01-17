@@ -30,7 +30,7 @@ class SignUpActivity : AppCompatActivity() {
             var last_name = lName_input.text.toString()
             var email = email_input.text.toString()
             var password = password_input.text.toString()
-            var userID = auth.currentUser!!.uid
+//            var userID = auth.currentUser!!.uid
 
             if (TextUtils.isEmpty(first_name) || TextUtils.isEmpty(last_name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
                 Toast.makeText(this, "გთხოვთ შეავსოთ ყველა ველი", Toast.LENGTH_LONG).show()
@@ -45,7 +45,7 @@ class SignUpActivity : AppCompatActivity() {
                                 "რეგისტრაცია წარმატებით განხორციელდა",
                                 Toast.LENGTH_LONG
                             ).show()
-                            writeUser(userID, first_name, last_name, email)
+                            writeUser(auth.currentUser!!.uid, first_name, last_name, email)
                             var gotoLoginActivity = Intent(this, LoginActivity::class.java)
                             startActivity(gotoLoginActivity)
                         } else {

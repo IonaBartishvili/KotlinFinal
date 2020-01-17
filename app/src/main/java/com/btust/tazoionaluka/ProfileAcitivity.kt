@@ -1,0 +1,73 @@
+package com.btust.tazoionaluka
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_profile_acitivity.*
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
+class ProfileAcitivity : AppCompatActivity() {
+
+    lateinit var auth: FirebaseAuth
+    lateinit var database: DatabaseReference
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_profile_acitivity)
+
+
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().getReference("Users")
+
+
+        changePswBtn.setOnClickListener {
+            var user = auth.currentUser
+            var newPassword = newPassword_input.text.toString()
+
+            user!!.updatePassword(newPassword).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(
+                        this,
+                        "პაროლის შეცვლა წარმატებით განხორციელდა",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    newPassword_input.setText("")
+                } else {
+                    Toast.makeText(this, "შეცდომა", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
+        logoutBtn.setOnClickListener {
+            val logout = Intent(this, LoginActivity::class.java)
+            startActivity(logout)
+            finish()
+        }
+
+
+        uploadImageBtn.setOnClickListener {
+            var imgUrl = imageUrl_Input.text.toString()
+
+            database.child(auth.currentUser?.uid!!)
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
+                    }
+                    override fun onDataChange(snap: DataSnapshot) {
+                        database.child(auth.currentUser?.uid!!).child("imgURL")
+                            .setValue(imgUrl)
+                    }
+
+                })
+
+        }
+
+    }
+}

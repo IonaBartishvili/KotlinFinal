@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileAcitivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--    CHANGE YOUR PROFILE PICTURE    -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="25dp"
+            android:orientation="vertical"
+            android:background="@drawable/container_design_blue"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:text="@string/change_profile_picture"
+                    android:textAllCaps="true"
+                    android:textColor="#FFF" />
+
+                <EditText
+                    android:id="@+id/imageUrl_Input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/imageURL" />
+
+                <Button
+                    android:id="@+id/uploadImageBtn"
+                    android:background="@drawable/btn_corner_white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:textColor="#FFF"
+                    android:text="@string/uploadPhoto" />
+        </LinearLayout>
+
+
+
+        <!--    CHANGE YOUR ACCOUNT PASSWORD   -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="25dp"
+            android:orientation="vertical"
+            android:background="@drawable/container_design_green"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                android:text="@string/change_acc_pass"
+                android:textAllCaps="true"
+                android:textColor="#FFF" />
+
+            <EditText
+                android:id="@+id/newPassword_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/newPassword" />
+
+            <Button
+                android:id="@+id/changePswBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/btn_corner_white"
+                android:text="@string/changePassword" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--    LOGOUT BUTTON    -->
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/login_btn_design"
+        android:text="გამოსვლა"
+        android:textColor="#4d45ed"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
